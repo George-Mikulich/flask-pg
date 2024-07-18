@@ -1,3 +1,5 @@
+#!/bin/bash
+
 docker build -t flask-db . &
 wait %1 #weakpoint as it can be not %1
 
@@ -11,3 +13,5 @@ kubectl -n postgres-operator port-forward "${PG_CLUSTER_PRIMARY_POD}" 5432:5432 
 docker run -d --network="host" flask-db
 
 wait %1 #same
+
+# and you need to stop docker container manually
