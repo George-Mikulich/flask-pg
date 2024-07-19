@@ -26,20 +26,9 @@ USER 1000
 
 ENV FLASK_APP=app
 ENV FLASK_ENV=development
-ENV PGUSER="hippo"
-ENV PGPASSWORD="mi.{XRKSE1C[|;Vgy7?hL5^-"
+#ENV PGUSER
+#ENV PGPASSWORD -------- must be extracted from secret specified in Pod definition
 
 CMD ["python", "initdb.py"]
 
 CMD ["flask", "run"]
-
-# FROM python:3.11-slim
-
-# COPY --from=build /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
-
-# COPY --from=build /app .
-
-# CMD ["python", "initdb.py"]
-
-# # Executing app
-# CMD ["flask", "run"]
